@@ -100,6 +100,7 @@ void* cp_mmap_calloc_with_file(cpShareMemory *object)
 
     }
     void *mem = mmap(NULL, object->size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    close(fd);
 #ifdef MAP_FAILED
     if (mem == MAP_FAILED)
 #else
